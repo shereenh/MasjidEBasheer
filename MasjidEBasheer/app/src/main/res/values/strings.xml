@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Masjid-E-Basheer</string>
+
+    <string name="masjid_name">Masjid-E-Basheer</string>
+    <string name="masjid_desc">Islamic Society of Framingham</string>
+    <string name="prayer_times">Prayer Times</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="fajr">Fajr</string>
+    <string name="dhuhr">Dhuhr\'\'</string>
+    <string name="asr">Asr</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isha">Isha</string>
+    <string name="jumah_khutbah">Jumma: Khutbah starts at %s and second Adhan at %s.</string>
+    <string name="announcements">Announcements</string>
+    <string name="isf_newsletter">ISF Newsletter</string>
+    <string name="calendar_and_events">Calendar and Events</string>
+    <string name="falah_islamic_institute">Al Falah Islamic Institute</string>
+    <string name="isf_members">ISF Members</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="donate">Donate</string>
+    <string name="settings">Settings</string>
+    <string name="masjid_address">234 Union Ave, Framingham, MA 01702</string>
+    <string name="masjid_mailing_address">Mailing Address - P.O. Box 1962, Framingham, MA 01701</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

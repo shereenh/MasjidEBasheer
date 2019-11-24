@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/isf_newsletter"
+        android:title="@string/isf_newsletter"/>
+    <item android:id="@+id/prayer_times"
+        android:title="@string/prayer_times"/>
+    <item android:id="@+id/calendar_and_events"
+        android:title="@string/calendar_and_events"/>
+    <item android:id="@+id/falah_islamic_institute"
+        android:title="@string/falah_islamic_institute"/>
+    <item android:id="@+id/announcements"
+        android:title="@string/announcements"/>
+    <item android:id="@+id/isf_members"
+        android:title="@string/isf_members"/>
+    <item android:id="@+id/contact_us"
+        android:title="@string/contact_us"/>
+    <item android:id="@+id/donate"
+        android:title="@string/donate"/>
+    <item android:id="@+id/settings"
+        android:title="@string/settings"/>
+
+</menu>

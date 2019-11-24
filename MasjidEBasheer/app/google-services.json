@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "856733304266",
+    "firebase_url": "https://masjid-e-basheer.firebaseio.com",
+    "project_id": "masjid-e-basheer",
+    "storage_bucket": "masjid-e-basheer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856733304266:android:28d0994775deec59eefb33",
+        "android_client_info": {
+          "package_name": "com.islam.masjid_e_basheer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856733304266-vva0aiu8o3li795vuh50249en8u008bk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_XRda3VDhjimDDbDlHpm1jiC3Sh0A0Ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856733304266-vva0aiu8o3li795vuh50249en8u008bk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

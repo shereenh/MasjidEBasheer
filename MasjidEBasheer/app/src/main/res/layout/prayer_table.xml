@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginHorizontal="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*">
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <TextView
+            android:text="@string/from"
+            style="@style/table_layout_titles" />
+
+        <TextView
+            android:text="@string/to"
+            style="@style/table_layout_titles" />
+
+        <TextView
+            android:text="@string/fajr"
+            style="@style/table_layout_titles" />
+
+        <TextView
+            android:text="@string/dhuhr"
+            style="@style/table_layout_titles" />
+
+        <TextView
+            android:text="@string/asr"
+            style="@style/table_layout_titles" />
+
+        <TextView
+            android:text="@string/maghrib"
+            style="@style/table_layout_titles"/>
+
+        <TextView
+            android:text="@string/isha"
+            style="@style/table_layout_titles"/>
+
+    </TableRow>
+
+    <include
+        android:id="@+id/row_1"
+        layout="@layout/prayer_table_row"/>
+
+    <TableRow>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Hhdwhfuef"/>
+    </TableRow>
+
+</TableLayout>
