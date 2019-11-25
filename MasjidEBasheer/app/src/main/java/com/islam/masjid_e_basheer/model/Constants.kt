@@ -26,6 +26,7 @@ class Constants {
         const val FIRESTORE_DOC_SIMPLE_PRAYER = "simple_prayer"
         const val FROM = "from"
         const val TO = "to"
+        const val DHUHR = "dhuhr"
         const val ASR = "asr"
 
     }

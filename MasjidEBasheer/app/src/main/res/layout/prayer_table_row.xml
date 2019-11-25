@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_marginStart="12dp"
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="Oct-1"
+        android:id="@+id/fromTextView"
         style="@style/table_layout_text"/>
 
     <TextView
-        android:text="Oct-2"
+        android:id="@+id/toTextView"
         style="@style/table_layout_text"/>
 
     <TextView
-        android:text="Oct-3"
+        android:id="@+id/fajrTextView"
         style="@style/table_layout_text"/>
 
     <TextView
-        android:text="Oct-4"
+        android:id="@+id/dhuhrTextView"
         style="@style/table_layout_text"/>
 
     <TextView
-        android:text="Oct-5"
+        android:id="@+id/asrTextView"
         style="@style/table_layout_text"/>
 
     <TextView
-        android:text="Oct-6"
+        android:id="@+id/maghribTextView"
         style="@style/table_layout_text"/>
 
     <TextView
-        android:text="Oct-6"
+        android:id="@+id/ishaTextView"
         style="@style/table_layout_text"/>
 
 </TableRow>

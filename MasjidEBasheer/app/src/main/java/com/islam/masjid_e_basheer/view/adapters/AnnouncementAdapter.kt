@@ -8,7 +8,7 @@ import com.islam.masjid_e_basheer.model.entity.Announcement
 import com.islam.masjid_e_basheer.view.inflate
 import kotlinx.android.synthetic.main.announcement_item.view.*
 
-class AnnouncementAdapter(): RecyclerView.Adapter<AnnouncementAdapter.AnnouncementHolder>() {
+class AnnouncementAdapter : RecyclerView.Adapter<AnnouncementAdapter.AnnouncementHolder>() {
 
     private var announcementList = mutableListOf<Announcement>()
 

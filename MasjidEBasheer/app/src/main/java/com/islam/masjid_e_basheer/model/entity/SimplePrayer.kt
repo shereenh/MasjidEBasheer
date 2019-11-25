@@ -11,9 +11,9 @@ class SimplePrayer (
     @ColumnInfo(name = Constants.FROM) var from: String,
     @ColumnInfo(name = Constants.TO) var to: String,
     @ColumnInfo(name = Constants.FAJR) var fajr: String,
-    @ColumnInfo(name = Constants.ZOHAR) var zohar: String,
+    @ColumnInfo(name = Constants.DHUHR) var dhuhr: String,
     @ColumnInfo(name = Constants.ASR) var asr: String,
-    @ColumnInfo(name = Constants.MAGHRIB) var maghrib: String = "Sunset",
+    @ColumnInfo(name = Constants.MAGHRIB) var maghrib: String,
     @ColumnInfo(name = Constants.ISHA) var isha: String)
 {
     override fun equals(other: Any?): Boolean {

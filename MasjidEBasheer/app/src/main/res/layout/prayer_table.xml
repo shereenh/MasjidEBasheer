@@ -39,9 +39,10 @@
 
     </TableRow>
 
-    <include
-        android:id="@+id/row_1"
-        layout="@layout/prayer_table_row"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/simplePrayerTableRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
 
     <TableRow>
         <TextView

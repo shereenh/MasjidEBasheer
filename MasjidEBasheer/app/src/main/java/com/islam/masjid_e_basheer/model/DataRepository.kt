@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import com.google.firebase.firestore.*
 import com.islam.masjid_e_basheer.model.Constants.Companion.TAG
 import com.islam.masjid_e_basheer.model.entity.Announcement
+import com.islam.masjid_e_basheer.model.entity.SimplePrayer
 import com.islam.masjid_e_basheer.model.firestore.FirestoreFactory
 import com.islam.masjid_e_basheer.model.firestore.FirestoreRepository
 import com.islam.masjid_e_basheer.model.room.BaseDaos
@@ -21,13 +22,16 @@ class DataRepository(private val prefs : SharedPreferences,
 
 //    private var announcementDao: AnnouncementDao = RDatabase.getInstance(mContext)!!.announcementDao()
     var announcements: LiveData<List<Announcement>>
+    var simplePrayers: LiveData<List<SimplePrayer>>
 
     private var newList = arrayListOf<Any>()
     private var oldList = arrayListOf<Any>()
     private var observedAnnouncementList = arrayListOf<Announcement>()
+    private var observedSimplePrayerList = arrayListOf<SimplePrayer>()
 
     init {
         announcements = announcementDao.getAllAnnouncements()
+        simplePrayers = simplePrayerDao.getAllSimplePrayers()
 
         setAllRoomData()
     }
@@ -61,8 +65,25 @@ class DataRepository(private val prefs : SharedPreferences,
         addToOldList(FDOCUMENT.ANNOUNCEMENT)
     }
 
+    override fun simplePrayersReceived(snapshot: QuerySnapshot) {
+        Log.d(TAG, "rec: " + snapshot.documents.toString())
+        clearLists()
+        for(change in snapshot.documentChanges) {
+            val snap = change.document
+            when(change.type){
+                DocumentChange.Type.ADDED ->
+                {   Log.d(TAG, "ADDED: " + FirestoreFactory.getSimplePrayer(snap.data, snap.id))
+                    val simplePrayer = FirestoreFactory.getSimplePrayer(snap.data, snap.id)
+                    newList.add(simplePrayer) }
+            }
+        }
+        Log.d(TAG, "done")
+        addToOldList(FDOCUMENT.SIMPLE_PRAYER)
+    }
+
     enum class FDOCUMENT {
         ANNOUNCEMENT,
+        SIMPLE_PRAYER,
         PRAYER,
         OTHER
     }
@@ -74,16 +95,32 @@ class DataRepository(private val prefs : SharedPreferences,
                     oldList.add(value)
                 }
             }
+            FDOCUMENT.SIMPLE_PRAYER -> {
+                for(value in observedSimplePrayerList){
+                    oldList.add(value)
+                }
+            }
         }
         syncLogic()
     }
 
     private fun clearLists(){
-        newList.clear()
-        oldList.clear()
+        newList = arrayListOf<Any>()
+        oldList = arrayListOf<Any>()
     }
 
     private fun syncLogic(){
+        Log.d(TAG+"k", "oldList: ")
+        for(item in oldList){
+            Log.d(TAG+"k", item.toString())
+        }
+
+        Log.d(TAG+"k", "newList: ")
+        for(item in newList){
+            Log.d(TAG+"k", item.toString())
+        }
+
+
         for(value in newList){
             if(value in oldList){
                 oldList.remove(value)
@@ -95,6 +132,8 @@ class DataRepository(private val prefs : SharedPreferences,
         for(value in oldList){
             deleteData(value)
         }
+
+        clearLists()
     }
 
     // ROOM
@@ -102,12 +141,16 @@ class DataRepository(private val prefs : SharedPreferences,
     private fun insertData(data: Any){
         if(data is Announcement){
             insertAnnouncement(data)
+        } else if( data is SimplePrayer){
+            insertSimplePrayer(data)
         }
     }
 
     private fun deleteData(data: Any){
         if(data is Announcement){
             deleteAnnouncement(data.id)
+        } else if(data is SimplePrayer){
+            deleteSimplePrayer(data.id)
         }
     }
 
@@ -116,6 +159,14 @@ class DataRepository(private val prefs : SharedPreferences,
             it?.let {
                 for(value in it){
                     observedAnnouncementList.add(value)
+                }
+            }
+        }
+
+        simplePrayers.observeForever {
+            it?.let {
+                for(value in it){
+                    observedSimplePrayerList.add(value)
                 }
             }
         }

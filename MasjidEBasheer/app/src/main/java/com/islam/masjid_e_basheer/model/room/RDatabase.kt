@@ -6,12 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.islam.masjid_e_basheer.model.Constants
 import com.islam.masjid_e_basheer.model.entity.Announcement
+import com.islam.masjid_e_basheer.model.entity.SimplePrayer
 import com.islam.masjid_e_basheer.model.room.dao.AnnouncementDao
+import com.islam.masjid_e_basheer.model.room.dao.SimplePrayerDao
 
-@Database(entities = arrayOf(Announcement::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Announcement::class, SimplePrayer::class), version = 3, exportSchema = false)
 abstract class RDatabase: RoomDatabase() {
 
     abstract fun announcementDao(): AnnouncementDao
+    abstract fun simplePrayerDao(): SimplePrayerDao
+
 
     companion object {
         private var INSTANCE: RDatabase? = null
@@ -23,6 +27,7 @@ abstract class RDatabase: RoomDatabase() {
                         context.applicationContext,
                         RDatabase::class.java,
                         Constants.DATABASE_NAME)
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }

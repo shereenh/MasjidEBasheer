@@ -8,7 +8,7 @@ import com.islam.masjid_e_basheer.model.Constants.Companion.TAG
 class FirestoreRepository(private val mFireStoreCallback: FirestoreCallback)
     {
 
-    var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
         mFirestore
@@ -18,12 +18,22 @@ class FirestoreRepository(private val mFireStoreCallback: FirestoreCallback)
                 mFireStoreCallback.announcementsReceived(it)
             }
             .addOnFailureListener{
-                Log.d(TAG, "fail: $it")
+                Log.d(TAG, "announcement fail: $it")
             }
 
+        mFirestore
+            .collection(Constants.FIRESTORE_DOC_SIMPLE_PRAYER)
+            .get()
+            .addOnSuccessListener {
+                mFireStoreCallback.simplePrayersReceived(it)
+            }
+            .addOnFailureListener{
+                Log.d(TAG, "simpleprayer fail: $it")
+            }
     }
 
     interface FirestoreCallback {
         fun announcementsReceived(snapshot: QuerySnapshot)
+        fun simplePrayersReceived(snapshot: QuerySnapshot)
     }
 }

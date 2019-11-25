@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.islam.masjid_e_basheer.model.DataRepository
 import com.islam.masjid_e_basheer.model.entity.Announcement
+import com.islam.masjid_e_basheer.model.entity.SimplePrayer
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -14,8 +15,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                                                 )
 
     val announcementLiveData: LiveData<List<Announcement>>
+    val simplePrayerLiveData: LiveData<List<SimplePrayer>>
 
     init {
         announcementLiveData = mRepository.announcements
+        simplePrayerLiveData = mRepository.simplePrayers
     }
 }
